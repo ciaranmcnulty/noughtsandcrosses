@@ -1,0 +1,22 @@
+{
+    "name": "ciaranmcnulty/noughtsandcrosses",
+    "description": "An implementation of a game engine for Noughts and Crosses to play with CQRS",
+    "authors": [
+        {
+            "name": "Ciaran McNulty",
+            "email": "mail@ciaranmcnulty.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "behat/behat": "~3.0"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "" : "src"
+        }
+    },
+    "config" : {
+        "bin-dir" : "bin"
+    }
+}
