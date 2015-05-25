@@ -2,6 +2,8 @@
 
 namespace NoughtsAndCrosses\Core;
 
-class GameCreated
+use NoughtsAndCrosses\Infrastructure\Event;
+
+class GameCreated implements Event
 {
 }
