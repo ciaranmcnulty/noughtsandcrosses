@@ -1,8 +1,11 @@
 <?php
 
-namespace NoughtsAndCrosses\Infrastructure;
+namespace NoughtsAndCrosses\Infrastructure\InMemory;
 
-class CommandBus
+use NoughtsAndCrosses\Core\Command\Command;
+use NoughtsAndCrosses\Core\Command\CommandBus as CommandBusInterface;
+
+class CommandBus implements CommandBusInterface
 {
     private $eventBus;
 
@@ -16,8 +19,7 @@ class CommandBus
 
     public function dispatch(Command $command)
     {
-        foreach ($this->commandHandlers as $commandHandler)
-        {
+        foreach ($this->commandHandlers as $commandHandler) {
             $commandHandler->handle($command);
         }
     }

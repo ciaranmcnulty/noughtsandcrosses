@@ -1,9 +1,9 @@
 <?php
 
 use NoughtsAndCrosses\Core\HandleCreateGame;
-use NoughtsAndCrosses\Infrastructure\Command;
-use NoughtsAndCrosses\Infrastructure\CommandBus;
-use NoughtsAndCrosses\Infrastructure\EventBus;
+use NoughtsAndCrosses\Core\Command\Command;
+use NoughtsAndCrosses\Infrastructure\InMemory\CommandBus;
+use NoughtsAndCrosses\Infrastructure\InMemory\EventBus;
 
 class ScenarioTester
 {

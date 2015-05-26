@@ -2,10 +2,10 @@
 
 namespace spec\NoughtsAndCrosses\Core;
 
+use NoughtsAndCrosses\Core\Command\CommandHandler;
 use NoughtsAndCrosses\Core\CreateGame;
 use NoughtsAndCrosses\Core\GameCreated;
-use NoughtsAndCrosses\Infrastructure\CommandHandler;
-use NoughtsAndCrosses\Infrastructure\EventBus;
+use NoughtsAndCrosses\Infrastructure\InMemory\EventBus;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 

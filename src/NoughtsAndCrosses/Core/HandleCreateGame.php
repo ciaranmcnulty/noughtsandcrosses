@@ -2,9 +2,9 @@
 
 namespace NoughtsAndCrosses\Core;
 
-use NoughtsAndCrosses\Infrastructure\Command;
-use NoughtsAndCrosses\Infrastructure\CommandHandler;
-use NoughtsAndCrosses\Infrastructure\EventBus;
+use NoughtsAndCrosses\Core\Command\Command;
+use NoughtsAndCrosses\Core\Command\CommandHandler;
+use NoughtsAndCrosses\Infrastructure\InMemory\EventBus;
 
 class HandleCreateGame implements CommandHandler
 {

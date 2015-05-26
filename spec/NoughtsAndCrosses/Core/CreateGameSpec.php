@@ -2,7 +2,7 @@
 
 namespace spec\NoughtsAndCrosses\Core;
 
-use NoughtsAndCrosses\Infrastructure\Command;
+use NoughtsAndCrosses\Core\Command\Command;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 

@@ -2,7 +2,7 @@
 
 namespace spec\NoughtsAndCrosses\Core;
 
-use NoughtsAndCrosses\Infrastructure\Event;
+use NoughtsAndCrosses\Core\Event\Event;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 

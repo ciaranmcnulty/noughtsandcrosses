@@ -1,6 +1,6 @@
 <?php
 
-namespace NoughtsAndCrosses\Infrastructure;
+namespace NoughtsAndCrosses\Core\Command;
 
 interface CommandHandler
 {

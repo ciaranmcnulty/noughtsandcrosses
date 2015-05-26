@@ -1,8 +1,10 @@
 <?php
 
-namespace NoughtsAndCrosses\Infrastructure;
+namespace NoughtsAndCrosses\Infrastructure\InMemory;
 
-class EventBus
+use NoughtsAndCrosses\Core\Event\Event;
+
+class EventBus implements \NoughtsAndCrosses\Core\Event\EventBus
 {
     private $events = [];
 

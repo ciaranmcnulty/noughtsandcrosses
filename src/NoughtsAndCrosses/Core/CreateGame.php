@@ -2,7 +2,7 @@
 
 namespace NoughtsAndCrosses\Core;
 
-use NoughtsAndCrosses\Infrastructure\Command;
+use NoughtsAndCrosses\Core\Command\Command;
 
 class CreateGame implements Command
 {
