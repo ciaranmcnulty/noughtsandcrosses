@@ -2,7 +2,7 @@
 
 namespace spec\NoughtsAndCrosses\Core;
 
-use NoughtsAndCrosses\Core\GameCreated;
+use NoughtsAndCrosses\Core\GameHasBegun;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
@@ -15,6 +15,6 @@ class GameSpec extends ObjectBehavior
 
     function it_starts_with_a_game_created_event()
     {
-        $this->getNewEvents()->shouldBeLike([new GameCreated()]);
+        $this->getNewEvents()->shouldBeLike([new GameHasBegun()]);
     }
 }

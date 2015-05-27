@@ -1,6 +1,6 @@
 <?php
 
-use NoughtsAndCrosses\Core\HandleCreateGame;
+use NoughtsAndCrosses\Core\HandleBeginGame;
 use NoughtsAndCrosses\Core\Command\Command;
 use NoughtsAndCrosses\Infrastructure\InMemory\CommandBus;
 use NoughtsAndCrosses\Infrastructure\InMemory\EventBus;
@@ -15,7 +15,7 @@ class ScenarioTester
     {
         $this->eventBus = new EventBus();
         $this->commandBus = new CommandBus($this->eventBus, [
-            new HandleCreateGame($this->eventBus)
+            new HandleBeginGame($this->eventBus)
         ]);
     }
 

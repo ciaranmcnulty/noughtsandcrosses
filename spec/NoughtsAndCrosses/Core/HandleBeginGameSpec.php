@@ -3,13 +3,13 @@
 namespace spec\NoughtsAndCrosses\Core;
 
 use NoughtsAndCrosses\Core\Command\CommandHandler;
-use NoughtsAndCrosses\Core\CreateGame;
-use NoughtsAndCrosses\Core\GameCreated;
+use NoughtsAndCrosses\Core\BeginGame;
+use NoughtsAndCrosses\Core\GameHasBegun;
 use NoughtsAndCrosses\Infrastructure\InMemory\EventBus;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class HandleCreateGameSpec extends ObjectBehavior
+class HandleBeginGameSpec extends ObjectBehavior
 {
     function let(EventBus $eventBus)
     {
@@ -21,10 +21,10 @@ class HandleCreateGameSpec extends ObjectBehavior
         $this->shouldHaveType(CommandHandler::class);
     }
 
-    function it_dispatches_game_created_when_handling_create_game_command(EventBus $eventBus)
+    function it_dispatches_game_has_begun_when_handling_create_game_command(EventBus $eventBus)
     {
-        $this->handle(new CreateGame());
+        $this->handle(new BeginGame());
 
-        $eventBus->dispatch(new GameCreated())->shouldHaveBeenCalled();
+        $eventBus->dispatch(new GameHasBegun())->shouldHaveBeenCalled();
     }
 }

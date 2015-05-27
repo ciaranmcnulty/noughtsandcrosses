@@ -12,7 +12,7 @@ class Game
     public function getNewEvents()
     {
         return [
-            new GameCreated()
+            new GameHasBegun()
         ];
     }
 }

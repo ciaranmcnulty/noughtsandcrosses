@@ -6,7 +6,7 @@ use NoughtsAndCrosses\Core\Command\Command;
 use NoughtsAndCrosses\Core\Command\CommandHandler;
 use NoughtsAndCrosses\Infrastructure\InMemory\EventBus;
 
-class HandleCreateGame implements CommandHandler
+class HandleBeginGame implements CommandHandler
 {
     private $eventBus;
 

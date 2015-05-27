@@ -5,8 +5,8 @@ use Behat\Behat\Context\Context;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
-use NoughtsAndCrosses\Core\CreateGame;
-use NoughtsAndCrosses\Core\GameCreated;
+use NoughtsAndCrosses\Core\BeginGame;
+use NoughtsAndCrosses\Core\GameHasBegun;
 
 class FeatureContext implements Context, SnippetAcceptingContext
 {
@@ -18,20 +18,20 @@ class FeatureContext implements Context, SnippetAcceptingContext
     }
 
     /**
-     * @When I create a new game
+     * @When I begin a game
      */
-    public function iCreateANewGame()
+    public function iBeginAGame()
     {
-        $this->scenario->when(new CreateGame());
+        $this->scenario->when(new BeginGame());
     }
 
     /**
-     * @Then a new game should have been created
+     * @Then the game should have begun
      */
-    public function aNewGameShouldHaveBeenCreated()
+    public function theGameShouldHaveBegun()
     {
         $this->scenario->then([
-            new GameCreated()
+            new GameHasBegun()
         ]);
     }
 }

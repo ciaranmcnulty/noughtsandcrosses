@@ -3,6 +3,6 @@ Feature: Creating a game
   As a player
   I should be able to create a new game
 
-  Scenario: Creating a game
-    When I create a new game
-    Then a new game should have been created
+  Scenario: Beginning a game
+    When I begin a game
+    Then the game should have begun
