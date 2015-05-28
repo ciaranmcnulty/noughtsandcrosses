@@ -2,17 +2,22 @@
 
 namespace spec\NoughtsAndCrosses\Core;
 
+use NoughtsAndCrosses\Core\Command\Command;
 use NoughtsAndCrosses\Core\Command\CommandHandler;
 use NoughtsAndCrosses\Core\BeginGame;
 use NoughtsAndCrosses\Core\GameHasBegun;
+use NoughtsAndCrosses\Core\GameIdentity;
 use NoughtsAndCrosses\Infrastructure\InMemory\EventBus;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
 class HandleBeginGameSpec extends ObjectBehavior
 {
+    private $gameIdentity;
+
     function let(EventBus $eventBus)
     {
+        $this->gameIdentity = GameIdentity::createNew();
         $this->beConstructedWith($eventBus);
     }
 
@@ -21,10 +26,20 @@ class HandleBeginGameSpec extends ObjectBehavior
         $this->shouldHaveType(CommandHandler::class);
     }
 
-    function it_dispatches_game_has_begun_when_handling_create_game_command(EventBus $eventBus)
+    function it_supports_begin_game_command()
     {
-        $this->handle(new BeginGame());
+        $this->supports(new BeginGame($this->gameIdentity))->shouldReturn(true);
+    }
 
-        $eventBus->dispatch(new GameHasBegun())->shouldHaveBeenCalled();
+    function it_does_not_support_other_commands(Command $command)
+    {
+        $this->supports($command)->shouldReturn(false);
+    }
+
+    function it_begins_game_when_handling_create_game_command(EventBus $eventBus)
+    {
+        $this->handle(new BeginGame($this->gameIdentity));
+
+        $eventBus->dispatchAll([new GameHasBegun($this->gameIdentity)])->shouldHaveBeenCalled();
     }
 }

@@ -17,4 +17,11 @@ class EventBus implements \NoughtsAndCrosses\Core\Event\EventBus
     {
         $this->events[] = $event;
     }
+
+    public function dispatchAll(array $events)
+    {
+        foreach ($events as $event) {
+            $this->events[] = $event;
+        }
+    }
 }

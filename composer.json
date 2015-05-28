@@ -7,7 +7,9 @@
             "email": "mail@ciaranmcnulty.com"
         }
     ],
-    "require": {},
+    "require": {
+        "ramsey/uuid": "^2.8"
+    },
     "require-dev": {
         "behat/behat": "^3.0",
         "bossa/phpspec2-expect": "^1.0",

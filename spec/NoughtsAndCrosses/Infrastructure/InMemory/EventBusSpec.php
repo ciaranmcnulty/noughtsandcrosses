@@ -19,4 +19,10 @@ class EventBusSpec extends ObjectBehavior
         $this->dispatch($event);
         $this->getEvents()->shouldBeLike([$event->getWrappedObject()]);
     }
+
+    function it_stores_multiple_dispatched_events(Event $event1, Event $event2)
+    {
+        $this->dispatchAll([ $event1->getWrappedObject(), $event2->getWrappedObject()]);
+        $this->getEvents()->shouldBeLike([ $event1->getWrappedObject(), $event2->getWrappedObject()]);
+    }
 }

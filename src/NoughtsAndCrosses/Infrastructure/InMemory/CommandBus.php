@@ -20,7 +20,9 @@ class CommandBus implements CommandBusInterface
     public function dispatch(Command $command)
     {
         foreach ($this->commandHandlers as $commandHandler) {
-            $commandHandler->handle($command);
+            if ($commandHandler->supports($command)) {
+                $commandHandler->handle($command);
+            }
         }
     }
 }
