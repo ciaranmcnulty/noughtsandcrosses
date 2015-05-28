@@ -8,13 +8,12 @@ Feature: Playing the game
     When I play the middle square as the "X" player
     Then the middle square should have been played with an "X"
 
-    @wip
   Scenario: Cannot play on occupied squares
     Given a game has begun
     And I have played the middle square as the "X" player
-    When I try to play the centre-top square as the "O" player
+    When I try to play the middle square as the "O" player
     Then I should not have been allowed to play that move
-    And the centre-top square should not have been played
+    And the middle square should not have been played by the "O" player
 
     @wip
   Scenario: Players must alternate

@@ -4,7 +4,7 @@ namespace NoughtsAndCrosses\Core;
 
 use Rhumsaa\Uuid\Uuid;
 
-class GameIdentity
+class GameId
 {
     private $uuid;
 
@@ -15,6 +15,6 @@ class GameIdentity
 
     public static function createNew()
     {
-        return new GameIdentity(Uuid::uuid4());
+        return new static(Uuid::uuid4());
     }
 }

@@ -4,11 +4,11 @@ namespace NoughtsAndCrosses\Core;
 
 use NoughtsAndCrosses\Core\Event\Event;
 
-class GameHasBegun implements Event
+class GameBegan implements Event
 {
     private $id;
 
-    public function __construct(GameIdentity $id)
+    public function __construct(GameId $id)
     {
         $this->id = $id;
     }

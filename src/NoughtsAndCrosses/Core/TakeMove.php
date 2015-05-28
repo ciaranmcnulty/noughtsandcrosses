@@ -4,7 +4,7 @@ namespace NoughtsAndCrosses\Core;
 
 use NoughtsAndCrosses\Core\Command\Command;
 
-class PlaySquareByPlayer implements Command
+class TakeMove implements Command
 {
     private $id;
 
@@ -12,7 +12,7 @@ class PlaySquareByPlayer implements Command
 
     private $player;
 
-    public function __construct(GameIdentity $id, Square $square, Player $player)
+    public function __construct(GameId $id, Square $square, Player $player)
     {
         $this->id = $id;
         $this->square = $square;

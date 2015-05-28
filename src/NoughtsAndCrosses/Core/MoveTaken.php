@@ -4,7 +4,7 @@ namespace NoughtsAndCrosses\Core;
 
 use NoughtsAndCrosses\Core\Event\Event;
 
-class SquarePlayedByPlayer implements Event
+class MoveTaken implements Event
 {
     private $id;
 
@@ -12,7 +12,7 @@ class SquarePlayedByPlayer implements Event
 
     private $player;
 
-    public function __construct(GameIdentity $id, Square $square, Player $player)
+    public function __construct(GameId $id, Square $square, Player $player)
     {
         $this->id = $id;
         $this->square = $square;

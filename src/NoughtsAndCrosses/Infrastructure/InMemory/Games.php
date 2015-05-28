@@ -2,17 +2,25 @@
 
 namespace NoughtsAndCrosses\Infrastructure\InMemory;
 
+use NoughtsAndCrosses\Core\Event\EventStore;
 use NoughtsAndCrosses\Core\Game;
-use NoughtsAndCrosses\Core\GameHasBegun;
-use NoughtsAndCrosses\Core\GameIdentity;
+use NoughtsAndCrosses\Core\GameBegan;
+use NoughtsAndCrosses\Core\GameId;
 use NoughtsAndCrosses\Core\Games as GamesInterface;
 
 class Games implements GamesInterface
 {
-    public function findById(GameIdentity $id)
+    private $eventStore;
+
+    public function __construct(EventStore $eventStore)
     {
-        return Game::fromEvents([
-            new GameHasBegun($id)
-        ]);
+        $this->eventStore = $eventStore;
+    }
+
+    public function findById(GameId $id)
+    {
+        $events = $this->eventStore->findByAggregateId($id);
+
+        return Game::fromEvents($events);
     }
 }

@@ -2,7 +2,7 @@
 
 use NoughtsAndCrosses\Core\HandleBeginGame;
 use NoughtsAndCrosses\Core\Command\Command;
-use NoughtsAndCrosses\Core\HandlePlaySquareByPlayer;
+use NoughtsAndCrosses\Core\HandleTakeMove;
 use NoughtsAndCrosses\Infrastructure\InMemory\CommandBus;
 use NoughtsAndCrosses\Infrastructure\InMemory\EventBus;
 use NoughtsAndCrosses\Infrastructure\InMemory\Games;
@@ -13,20 +13,18 @@ class ScenarioTester
 
     private $commandBus;
 
-    private $priorEvents = array();
-
     public function __construct()
     {
         $this->eventBus = new EventBus();
         $this->commandBus = new CommandBus($this->eventBus, [
             new HandleBeginGame($this->eventBus),
-            new HandlePlaySquareByPlayer($this->eventBus, new Games())
+            new HandleTakeMove($this->eventBus, new Games($this->eventBus))
         ]);
     }
 
     public function given(array $events)
     {
-        $this->priorEvents = $events;
+        $this->eventBus->addPriorEvents($events);
     }
 
     public function when(Command $command)
@@ -36,14 +34,24 @@ class ScenarioTester
 
     public function then(array $expectedEvents)
     {
-        $actualEvents = $this->eventBus->getEvents();
+        $actualEvents = $this->eventBus->getNewEvents();
 
         if ($actualEvents != $expectedEvents) {
             throw new \RuntimeException(sprintf(
                 "Events did not match: \n%s\n%s",
-                var_export($actualEvents, true),
-                var_export($expectedEvents, true)
+                print_r($actualEvents, true),
+                print_r($expectedEvents, true)
             ));
         }
     }
-} 
+
+    public function thenNot($event)
+    {
+        if (in_array($event, $this->eventBus->getNewEvents())) {
+            throw new \RuntimeException(sprintf(
+                "Event was not expected: \n%s",
+                $event
+            ));
+        }
+    }
+}

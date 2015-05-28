@@ -3,7 +3,7 @@
 namespace spec\NoughtsAndCrosses\Core;
 
 use NoughtsAndCrosses\Core\Command\Command;
-use NoughtsAndCrosses\Core\GameIdentity;
+use NoughtsAndCrosses\Core\GameId;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 use Rhumsaa\Uuid\Uuid;
@@ -14,7 +14,7 @@ class BeginGameSpec extends ObjectBehavior
 
     function let()
     {
-        $this->id = GameIdentity::createNew();
+        $this->id = GameId::createNew();
         $this->beConstructedWith($this->id);
     }
 

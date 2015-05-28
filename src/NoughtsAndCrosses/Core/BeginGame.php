@@ -8,7 +8,7 @@ class BeginGame implements Command
 {
     private $id;
 
-    public function __construct(GameIdentity $id)
+    public function __construct(GameId $id)
     {
         $this->id = $id;
     }

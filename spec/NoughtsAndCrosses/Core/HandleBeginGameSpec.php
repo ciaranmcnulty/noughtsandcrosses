@@ -5,8 +5,8 @@ namespace spec\NoughtsAndCrosses\Core;
 use NoughtsAndCrosses\Core\Command\Command;
 use NoughtsAndCrosses\Core\Command\CommandHandler;
 use NoughtsAndCrosses\Core\BeginGame;
-use NoughtsAndCrosses\Core\GameHasBegun;
-use NoughtsAndCrosses\Core\GameIdentity;
+use NoughtsAndCrosses\Core\GameBegan;
+use NoughtsAndCrosses\Core\GameId;
 use NoughtsAndCrosses\Infrastructure\InMemory\EventBus;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
@@ -17,7 +17,7 @@ class HandleBeginGameSpec extends ObjectBehavior
 
     function let(EventBus $eventBus)
     {
-        $this->gameIdentity = GameIdentity::createNew();
+        $this->gameIdentity = GameId::createNew();
         $this->beConstructedWith($eventBus);
     }
 
@@ -40,6 +40,6 @@ class HandleBeginGameSpec extends ObjectBehavior
     {
         $this->handle(new BeginGame($this->gameIdentity));
 
-        $eventBus->dispatchAll([new GameHasBegun($this->gameIdentity)])->shouldHaveBeenCalled();
+        $eventBus->dispatchAll([new GameBegan($this->gameIdentity)])->shouldHaveBeenCalled();
     }
 }

@@ -6,7 +6,7 @@ use NoughtsAndCrosses\Core\Command\Command;
 use NoughtsAndCrosses\Core\Command\CommandHandler;
 use NoughtsAndCrosses\Core\Event\EventBus;
 
-class HandlePlaySquareByPlayer implements CommandHandler
+class HandleTakeMove implements CommandHandler
 {
     private $eventBus;
 
@@ -28,6 +28,6 @@ class HandlePlaySquareByPlayer implements CommandHandler
 
     public function supports(Command $command)
     {
-        return $command instanceof PlaySquareByPlayer;
+        return $command instanceof TakeMove;
     }
 }

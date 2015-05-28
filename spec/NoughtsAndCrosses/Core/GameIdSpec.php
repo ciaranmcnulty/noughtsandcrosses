@@ -2,11 +2,11 @@
 
 namespace spec\NoughtsAndCrosses\Core;
 
-use NoughtsAndCrosses\Core\GameIdentity;
+use NoughtsAndCrosses\Core\GameId;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class GameIdentitySpec extends ObjectBehavior
+class GameIdSpec extends ObjectBehavior
 {
     function let()
     {
@@ -20,6 +20,6 @@ class GameIdentitySpec extends ObjectBehavior
 
     function it_is_not_equal_to_other_ids()
     {
-        $this->shouldNotBeLike(GameIdentity::createNew());
+        $this->shouldNotBeLike(GameId::createNew());
     }
 }

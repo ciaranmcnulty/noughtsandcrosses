@@ -3,17 +3,17 @@
 namespace spec\NoughtsAndCrosses\Core;
 
 use NoughtsAndCrosses\Core\Command\Command;
-use NoughtsAndCrosses\Core\GameIdentity;
+use NoughtsAndCrosses\Core\GameId;
 use NoughtsAndCrosses\Core\Player;
 use NoughtsAndCrosses\Core\Square;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class PlaySquareByPlayerSpec extends ObjectBehavior
+class TakeMoveSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith(GameIdentity::createNew(), Square::atPosition('A', 1), Player::O());
+        $this->beConstructedWith(GameId::createNew(), Square::atPosition('A', 1), Player::O());
     }
 
     function it_is_a_command()
@@ -23,7 +23,7 @@ class PlaySquareByPlayerSpec extends ObjectBehavior
 
     function it_exposes_game_identity()
     {
-        $this->id()->shouldHaveType(GameIdentity::class);
+        $this->id()->shouldHaveType(GameId::class);
     }
 
     function it_exposes_square()

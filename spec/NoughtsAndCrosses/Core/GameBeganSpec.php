@@ -3,17 +3,17 @@
 namespace spec\NoughtsAndCrosses\Core;
 
 use NoughtsAndCrosses\Core\Event\Event;
-use NoughtsAndCrosses\Core\GameIdentity;
+use NoughtsAndCrosses\Core\GameId;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class GameHasBegunSpec extends ObjectBehavior
+class GameBeganSpec extends ObjectBehavior
 {
     private $id;
 
     function let()
     {
-        $this->id = GameIdentity::createNew();
+        $this->id = GameId::createNew();
         $this->beConstructedWith($this->id);
     }
 
