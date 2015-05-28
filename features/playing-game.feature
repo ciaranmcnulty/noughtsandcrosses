@@ -15,11 +15,10 @@ Feature: Playing the game
     Then I should not have been allowed to play that move
     And the middle square should not have been played by the "O" player
 
-    @wip
   Scenario: Players must alternate
     Given a game has begun
     And I have played the middle square as the "X" player
-    When I try to play the centre-top square as the "X" player
+    When I try to play the "centre-top" square as the "X" player
     Then I should not have been allowed to play that move
-    And the centre-top square should not have been played
+    And the "centre-top" square should not have been played by the "X" player
 

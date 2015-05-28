@@ -41,6 +41,12 @@ class GameSpec extends ObjectBehavior
         ]);
     }
 
+    function it_refuses_move_when_same_player_plays_twice()
+    {
+        $this->play(Square::atPosition('A', 1), Player::O());
+        $this->shouldThrow(MoveNotValid::class)->duringPlay(Square::atPosition('B', 1), Player::O());
+    }
+
     function it_refuses_move_when_square_is_occupied()
     {
         $this->beConstructedThrough('fromEvents', [[

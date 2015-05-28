@@ -12,6 +12,8 @@ class Game
 
     private $occupiedSquares = [];
 
+    private $lastPlayer;
+
     private function __construct(){}
 
     public static function begin(GameId $identity)
@@ -48,15 +50,31 @@ class Game
     private function apply(Event $event)
     {
         if ($event instanceof GameBegan) {
-            $this->id = $event->id();
+            $this->applyGameBegan($event);
         }
         elseif ($event instanceof MoveTaken) {
-            if (in_array($event->square(), $this->occupiedSquares)) {
-                throw new MoveNotValid('Square already played');
-            }
-            $this->occupiedSquares[] = $event->square();
+            $this->applyMoveTaken($event);
         }
 
         $this->events[] = $event;
+    }
+
+    private function applyGameBegan(GameBegan $gameBegan)
+    {
+        $this->id = $gameBegan->id();
+    }
+
+    private function applyMoveTaken(MoveTaken $moveTaken)
+    {
+        if (in_array($moveTaken->square(), $this->occupiedSquares)) {
+            throw new MoveNotValid('Square already played');
+        }
+
+        if ($moveTaken->player() == $this->lastPlayer) {
+            throw new MoveNotValid('Same player played twice in a row');
+        }
+
+        $this->lastPlayer = $moveTaken->player();
+        $this->occupiedSquares[] = $moveTaken->square();
     }
 }

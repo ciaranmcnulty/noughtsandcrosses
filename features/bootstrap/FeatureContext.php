@@ -120,6 +120,9 @@ class FeatureContext implements Context, SnippetAcceptingContext
         if ('middle' == $string) {
             return Square::atPosition("B", 2);
         }
+        elseif ('centre-top' == $string) {
+            return Square::atPosition("A", 2);
+        }
         else {
             throw new \RuntimeException("Unknown square position '$string'");
         }
