@@ -8,12 +8,18 @@
         }
     ],
     "require": {
-        "ramsey/uuid": "^2.8"
+        "php": ">=5.5.0",
+        "ramsey/uuid": "^2.8",
+        "symfony/symfony": "~2.7",
+        "sensio/framework-extra-bundle": "^3.0"
     },
     "require-dev": {
         "behat/behat": "^3.0",
         "bossa/phpspec2-expect": "^1.0",
-        "phpspec/phpspec": "^2.2"
+        "phpspec/phpspec": "^2.2",
+        "behat/mink-extension": "^2.0",
+        "behat/mink-goutte-driver": "^1.1",
+        "ciaranmcnulty/behat-localwebserverextension": "^1.0"
     },
     "autoload" : {
         "psr-0" : {

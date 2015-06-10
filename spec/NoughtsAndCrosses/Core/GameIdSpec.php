@@ -22,4 +22,11 @@ class GameIdSpec extends ObjectBehavior
     {
         $this->shouldNotBeLike(GameId::createNew());
     }
+
+    function it_can_be_turned_into_a_string()
+    {
+        $this->beConstructedThrough('fromUrlToken', ['gPF_x4ULSGCq-Th6rpv7rw']);
+
+        $this->asUrlToken()->shouldReturn('gPF_x4ULSGCq-Th6rpv7rw');
+    }
 }

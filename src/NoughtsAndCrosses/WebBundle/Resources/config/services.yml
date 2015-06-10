@@ -1,0 +1,19 @@
+services:
+  web_bundle.game_controller:
+    class: NoughtsAndCrosses\WebBundle\Controller\GameController
+    arguments:
+      - @router
+      - @core.command_bus
+
+  core.command_bus:
+    class: NoughtsAndCrosses\Infrastructure\InMemory\CommandBus
+    arguments:
+      - @core.event_bus
+      - [ @core.command_handler.begin_game ]
+
+  core.event_bus:
+    class: NoughtsAndCrosses\Infrastructure\InMemory\EventBus
+
+  core.command_handler.begin_game:
+    class: NoughtsAndCrosses\Core\HandleBeginGame
+    arguments: [ @core.event_bus ]

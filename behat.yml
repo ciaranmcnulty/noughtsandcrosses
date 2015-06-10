@@ -2,3 +2,21 @@ default:
   gherkin:
     filters:
       tags: ~@wip
+  suites:
+    core:
+      contexts:
+        - CoreContext
+    web:
+      contexts:
+        - WebContext
+      filters:
+        tags: @critical
+  extensions:
+    Behat\MinkExtension:
+      base_url:  'http://localhost:8001/app_dev.php'
+      sessions:
+        default:
+          goutte: ~
+    Cjm\Behat\LocalWebserverExtension:
+      suites:
+        - web

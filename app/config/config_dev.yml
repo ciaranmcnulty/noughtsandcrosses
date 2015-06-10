@@ -1,0 +1,28 @@
+# app/config/config_dev.yml
+framework:
+    secret: $ecret
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+    form:            ~
+    csrf_protection: ~
+    validation:
+      enable_annotations: true
+    templating:
+      engines: ['twig']
+    session:         ~
+    fragments:       ~
+
+sensio_framework_extra:
+    router:
+      annotations: true
+    request:
+      converters: true
+      auto_convert: true
+    view:
+      annotations: true
+    cache:
+      annotations: true
+    security:
+      annotations: true
+    psr_message:
+      enabled: false
