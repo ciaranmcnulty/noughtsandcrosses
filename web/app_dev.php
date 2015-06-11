@@ -1,12 +1,9 @@
 <?php
 
-use Doctrine\Common\Annotations\AnnotationRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Debug\Debug;
 
-$loader = require_once __DIR__ . '/../vendor/autoload.php';
-
-AnnotationRegistry::registerLoader([$loader, 'loadClass']);
+require_once __DIR__ . '/../app/autoload.php';
 Debug::enable();
 
 require_once __DIR__ . '/../app/AppKernel.php';
