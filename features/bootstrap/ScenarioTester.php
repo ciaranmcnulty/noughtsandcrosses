@@ -1,11 +1,11 @@
 <?php
 
 use NoughtsAndCrosses\Core\HandleBeginGame;
-use NoughtsAndCrosses\Core\Command\Command;
+use NoughtsAndCrosses\Core\Infrastructure\Command;
 use NoughtsAndCrosses\Core\HandleTakeMove;
-use NoughtsAndCrosses\Infrastructure\InMemory\CommandBus;
-use NoughtsAndCrosses\Infrastructure\InMemory\EventBus;
-use NoughtsAndCrosses\Infrastructure\InMemory\Games;
+use NoughtsAndCrosses\Bridge\InMemory\CommandBus;
+use NoughtsAndCrosses\Bridge\InMemory\EventBus;
+use NoughtsAndCrosses\Bridge\InMemory\Games;
 
 class ScenarioTester
 {

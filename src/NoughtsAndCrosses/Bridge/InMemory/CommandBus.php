@@ -1,9 +1,9 @@
 <?php
 
-namespace NoughtsAndCrosses\Infrastructure\InMemory;
+namespace NoughtsAndCrosses\Bridge\InMemory;
 
-use NoughtsAndCrosses\Core\Command\Command;
-use NoughtsAndCrosses\Core\Command\CommandBus as CommandBusInterface;
+use NoughtsAndCrosses\Core\Infrastructure\Command;
+use NoughtsAndCrosses\Core\Infrastructure\CommandBus as CommandBusInterface;
 
 class CommandBus implements CommandBusInterface
 {

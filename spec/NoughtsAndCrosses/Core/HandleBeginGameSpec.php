@@ -2,12 +2,12 @@
 
 namespace spec\NoughtsAndCrosses\Core;
 
-use NoughtsAndCrosses\Core\Command\Command;
-use NoughtsAndCrosses\Core\Command\CommandHandler;
+use NoughtsAndCrosses\Core\Infrastructure\Command;
+use NoughtsAndCrosses\Core\Infrastructure\CommandHandler;
 use NoughtsAndCrosses\Core\BeginGame;
 use NoughtsAndCrosses\Core\GameBegan;
 use NoughtsAndCrosses\Core\GameId;
-use NoughtsAndCrosses\Infrastructure\InMemory\EventBus;
+use NoughtsAndCrosses\Bridge\InMemory\EventBus;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 

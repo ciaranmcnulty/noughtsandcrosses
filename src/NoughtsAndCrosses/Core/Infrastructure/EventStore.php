@@ -1,6 +1,6 @@
 <?php
 
-namespace NoughtsAndCrosses\Core\Event;
+namespace NoughtsAndCrosses\Core\Infrastructure;
 
 interface EventStore
 {

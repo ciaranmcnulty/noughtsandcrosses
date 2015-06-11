@@ -1,10 +1,10 @@
 <?php
 
-namespace NoughtsAndCrosses\Infrastructure\InMemory;
+namespace NoughtsAndCrosses\Bridge\InMemory;
 
-use NoughtsAndCrosses\Core\Event\Event;
-use NoughtsAndCrosses\Core\Event\EventBus as EventBusInterface;
-use NoughtsAndCrosses\Core\Event\EventStore;
+use NoughtsAndCrosses\Core\Infrastructure\Event;
+use NoughtsAndCrosses\Core\Infrastructure\EventBus as EventBusInterface;
+use NoughtsAndCrosses\Core\Infrastructure\EventStore;
 
 class EventBus implements EventBusInterface, EventStore
 {

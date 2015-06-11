@@ -2,7 +2,7 @@
 
 namespace NoughtsAndCrosses\Core;
 
-use NoughtsAndCrosses\Core\Event\Event;
+use NoughtsAndCrosses\Core\Infrastructure\Event;
 
 class GameBegan implements Event
 {

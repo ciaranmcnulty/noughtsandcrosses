@@ -1,8 +1,8 @@
 <?php
 
-namespace NoughtsAndCrosses\Infrastructure\InMemory;
+namespace NoughtsAndCrosses\Bridge\InMemory;
 
-use NoughtsAndCrosses\Core\Event\EventStore;
+use NoughtsAndCrosses\Core\Infrastructure\EventStore;
 use NoughtsAndCrosses\Core\Game;
 use NoughtsAndCrosses\Core\GameBegan;
 use NoughtsAndCrosses\Core\GameId;

@@ -2,7 +2,7 @@
 
 namespace NoughtsAndCrosses\Core;
 
-use NoughtsAndCrosses\Core\Command\Command;
+use NoughtsAndCrosses\Core\Infrastructure\Command;
 
 class TakeMove implements Command
 {

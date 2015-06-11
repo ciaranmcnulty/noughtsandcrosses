@@ -2,7 +2,7 @@
 
 namespace spec\NoughtsAndCrosses\Core;
 
-use NoughtsAndCrosses\Core\Command\Command;
+use NoughtsAndCrosses\Core\Infrastructure\Command;
 use NoughtsAndCrosses\Core\GameId;
 use NoughtsAndCrosses\Core\Player;
 use NoughtsAndCrosses\Core\Square;

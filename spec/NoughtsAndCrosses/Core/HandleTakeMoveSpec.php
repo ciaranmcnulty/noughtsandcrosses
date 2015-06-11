@@ -2,9 +2,9 @@
 
 namespace spec\NoughtsAndCrosses\Core;
 
-use NoughtsAndCrosses\Core\Command\Command;
-use NoughtsAndCrosses\Core\Command\CommandHandler;
-use NoughtsAndCrosses\Core\Event\EventBus;
+use NoughtsAndCrosses\Core\Infrastructure\Command;
+use NoughtsAndCrosses\Core\Infrastructure\CommandHandler;
+use NoughtsAndCrosses\Core\Infrastructure\EventBus;
 use NoughtsAndCrosses\Core\Game;
 use NoughtsAndCrosses\Core\GameBegan;
 use NoughtsAndCrosses\Core\GameId;

@@ -2,8 +2,8 @@
 
 namespace spec\NoughtsAndCrosses\Core;
 
-use NoughtsAndCrosses\Core\Command\CommandHandler;
-use NoughtsAndCrosses\Core\Event\Event;
+use NoughtsAndCrosses\Core\Infrastructure\CommandHandler;
+use NoughtsAndCrosses\Core\Infrastructure\Event;
 use NoughtsAndCrosses\Core\GameId;
 use NoughtsAndCrosses\Core\Player;
 use NoughtsAndCrosses\Core\Square;
