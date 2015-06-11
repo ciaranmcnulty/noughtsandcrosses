@@ -1,18 +1,29 @@
 services:
-  web_bundle.game_controller:
-    class: NoughtsAndCrosses\WebBundle\Controller\GameController
+  web_bundle.game_list_controller:
+    class: NoughtsAndCrosses\WebBundle\Controller\GameListController
     arguments:
       - @router
       - @core.command_bus
 
+  web_bundle.game_play_controller:
+    class: NoughtsAndCrosses\WebBundle\Controller\GamePlayController
+    arguments:
+      - @router
+      - @core.command_bus
+
+  web_bundle.converter.game_id:
+    class: NoughtsAndCrosses\WebBundle\ParamConverter\GameIdConverter
+    tags:
+      - { name: request.param_converter, priority: -2, converter: web_bundle.converter.game_id }
+
   core.command_bus:
-    class: NoughtsAndCrosses\Infrastructure\InMemory\CommandBus
+    class: NoughtsAndCrosses\Bridge\InMemory\CommandBus
     arguments:
       - @core.event_bus
       - [ @core.command_handler.begin_game ]
 
   core.event_bus:
-    class: NoughtsAndCrosses\Infrastructure\InMemory\EventBus
+    class: NoughtsAndCrosses\Bridge\InMemory\EventBus
 
   core.command_handler.begin_game:
     class: NoughtsAndCrosses\Core\HandleBeginGame

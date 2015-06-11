@@ -1,5 +1,6 @@
 <?php
 
+use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
@@ -11,17 +12,7 @@ use Behat\MinkExtension\Context\RawMinkContext;
 class WebContext extends RawMinkContext
 {
     /**
-     * Initializes context.
-     *
-     * Every scenario gets its own context instance.
-     * You can also pass arbitrary arguments to the
-     * context constructor through behat.yml.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
+     * @Given a game has already begun
      * @When I begin a game
      */
     public function iBeginAGame()
@@ -39,5 +30,22 @@ class WebContext extends RawMinkContext
     {
         $this->assertSession()->addressMatches('|/game/[0-9a-zA-Z-_]+|i');
         $this->assertSession()->pageTextContains('Game created');
+    }
+
+    /**
+     * @When I play the :square square as the :player player
+     */
+    public function iPlayTheMiddleSquareAsThePlayer($square, $player)
+    {
+        $this->getSession()->getPage()->selectFieldOption("player", $player);
+        $this->getSession()->getPage()->pressButton("square-$square");
+    }
+
+    /**
+     * @Then the :square square should have been played with an :player
+     */
+    public function theMiddleSquareShouldHaveBeenPlayedWithAn($square, $player)
+    {
+        $this->assertSession()->elementTextContains('css', "#square-$square", $player);
     }
 }

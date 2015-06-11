@@ -46,7 +46,7 @@ class CoreContext implements Context
     }
 
     /**
-     * @Given a game has begun
+     * @Given a game has already begun
      */
     public function aGameHasBegun()
     {

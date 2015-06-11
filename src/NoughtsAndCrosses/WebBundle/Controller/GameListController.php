@@ -3,28 +3,26 @@
 namespace NoughtsAndCrosses\WebBundle\Controller;
 
 use NoughtsAndCrosses\Core\BeginGame;
-use NoughtsAndCrosses\Core\Command\CommandBus;
+use NoughtsAndCrosses\Core\Infrastructure\CommandBus;
 use NoughtsAndCrosses\Core\GameId;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 /**
- * @Route(service="webbundle.gamecontroller")
+ * @Route(service="web_bundle.game_list_controller")
  */
-class GameController extends Controller
+class GameListController
 {
     /**
      * @var CommandBus
      */
     private $commandBus;
+
     /**
      * @var UrlGeneratorInterface
      */
@@ -58,16 +56,5 @@ class GameController extends Controller
         );
 
         return new RedirectResponse($this->urlGenerator->generate('game', ['id' => $id->asUrlToken()]));
-    }
-
-    /**
-     * @Route("/game/{id}", requirements={"id"="[0-9a-zA-Z-_]+"}, name="game")
-     * @Method("GET")
-     *
-     * @Template
-     */
-    public function gameAction()
-    {
-        return [];
     }
 }
