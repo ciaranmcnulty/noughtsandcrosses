@@ -2,6 +2,7 @@
 
 namespace NoughtsAndCrosses\WebBundle\Controller;
 
+use NoughtsAndCrosses\Core\Games;
 use NoughtsAndCrosses\Core\Infrastructure\CommandBus;
 use NoughtsAndCrosses\Core\GameId;
 use NoughtsAndCrosses\Core\Player;
@@ -43,9 +44,9 @@ class GamePlayController
      *
      * @Template
      */
-    public function showAction()
+    public function showAction(GameId $id)
     {
-        return [];
+
     }
 
     /**

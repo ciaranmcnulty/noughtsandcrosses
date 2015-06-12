@@ -22,9 +22,15 @@ services:
       - @core.event_bus
       - [ @core.command_handler.begin_game ]
 
-  core.event_bus:
-    class: NoughtsAndCrosses\Bridge\InMemory\EventBus
-
   core.command_handler.begin_game:
     class: NoughtsAndCrosses\Core\HandleBeginGame
     arguments: [ @core.event_bus ]
+
+  core.event_bus:
+    class: NoughtsAndCrosses\Bridge\InMemory\EventBus
+
+  core.event_store:
+    alias: core.event_bus
+
+
+
